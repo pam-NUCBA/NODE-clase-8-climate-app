@@ -1,0 +1,26 @@
+https://devcenter.heroku.com/articles/deploying-nodejs
+
+1. crear cuenta
+
+2. instalar el CLI: https://devcenter.heroku.com/articles/heroku-cli
+
+3. agregar como engine al package.json la versión de node (chequeenla con node -v): 
+  "engines": {
+      "node": "14.15.0"
+    }
+
+4. correr en la consola: "heroku local web". Debería levantar en el puerto 5050 (si no anda, fíjense si no tenían abierto el visual mientras instalaban heroku!)
+
+5. correr las instrucciones de deploy:
+  git add .
+  git commit -m "Added a Procfile."
+  heroku login
+  heroku create
+  git push heroku {rama}
+
+  6. las variables de entorno no se configuran automáticamente! hay que subirlas: https://devcenter.heroku.com/articles/config-vars#managing-config-vars
+  heroku config:set GITHUB_USERNAME=joesmith
+
+  para borrar una:
+  heroku config:unset GITHUB_USERNAME
+
